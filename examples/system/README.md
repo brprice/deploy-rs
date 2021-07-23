@@ -16,6 +16,11 @@ This is an example of how to deploy a full nixos system with a separate user uni
 3. `nix run . -- .#example.hello`
 4. See that it worked: log in to the vm as 'hello', and run `systemctl --user status hello`
    TODO: currently this complains about "Unknown key name "WantedBy" in section "Unit".
+   TODO: unfortunately, the changes to the vm don't quite survive a reboot in the way one may expect, via the ./result/bin/run-... script,
+	 since /boot is mounted from a fresh copy of the original boot drive,
+	 and thus quitting the vm and re-running the script will boot the
+	 original system (before any deploys). However, the changes outside of
+         /boot will survive!
 # Past here is not tested :-P
 5. ???
 6. PROFIT!!!
