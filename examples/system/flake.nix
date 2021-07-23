@@ -27,6 +27,7 @@
       sshOpts = [ "-p" "2221" "-o" "UserKnownHostsFile=/dev/null" "-o" "StrictHostKeyChecking=no" ];
       hostname = "localhost";
       fastConnection = true;
+      profilesOrder = ["system" "hello"];
       profiles = {
         system = {
           sshUser = "admin";
