@@ -6,6 +6,7 @@
   description = "Deploy a full system with hello service as a separate profile";
 
   inputs.deploy-rs.url = "github:serokell/deploy-rs";
+  inputs.nixpkgs.follows = "deploy-rs/nixpkgs";
 
   outputs = { self, nixpkgs, deploy-rs }: {
     nixosConfigurations.example-nixos-system = nixpkgs.lib.nixosSystem {
@@ -42,5 +43,16 @@
     };
 
     checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+
+    # use the pinned deploy-rs, via 'nix run .' (or nix develop, then run deploy-rs)
+    apps.x86_64-linux.deployApp = {
+      type = "app";
+      program = "${deploy-rs.packages.x86_64-linux.deploy-rs}/bin/deploy";
+    };
+    defaultApp.x86_64-linux = self.apps.x86_64-linux.deployApp;
+
+    devShell.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.mkShell {
+       buildInputs = [ deploy-rs.defaultPackage.x86_64-linux ];
+    };
   };
 }
