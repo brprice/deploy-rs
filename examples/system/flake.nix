@@ -24,7 +24,7 @@
     defaultPackage.x86_64-linux = import ./hello.nix nixpkgs;
 
     deploy.nodes.example = {
-      sshOpts = [ "-p" "2221" ];
+      sshOpts = [ "-p" "2221" "-o" "UserKnownHostsFile=/dev/null" "-o" "StrictHostKeyChecking=no" ];
       hostname = "localhost";
       fastConnection = true;
       profiles = {
