@@ -17,7 +17,7 @@
     nixosConfigurations.bare = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules =
-        [ ./bare.nix "${nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix" ];
+        [ ./bare.nix ./qemu-vm.nix ];
     };
 
     # This is the application we actually want to run
