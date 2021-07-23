@@ -27,7 +27,7 @@
       sshOpts = [ "-p" "2221" "-o" "UserKnownHostsFile=/dev/null" "-o" "StrictHostKeyChecking=no" ];
       hostname = "localhost";
       fastConnection = true;
-      profilesOrder = ["system" "hello"];
+      profilesOrder = ["system" "hello"]; # unfortunately, this is not strong enough: we copy system, then copy hello, but at that point (from a bare machine), the 'hello' user does not exist, so the copy fails!
       profiles = {
         system = {
           sshUser = "admin";
