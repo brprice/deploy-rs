@@ -14,7 +14,8 @@ This is an example of how to deploy a full nixos system with a separate user uni
   - `QEMU_NET_OPTS=hostfwd=tcp::2221-:22 ./result/bin/run-bare-system-vm`
 2. `SSH_ASKPASS_REQUIRE=prefer nix run . -- .#example.system`
 3. `nix run . -- .#example.hello`
-# Past here is not tested
-4. somehow test it worked?
+4. See that it worked: log in to the vm as 'hello', and run `systemctl --user status hello`
+   TODO: currently this complains about "Unknown key name "WantedBy" in section "Unit".
+# Past here is not tested :-P
 5. ???
 6. PROFIT!!!
