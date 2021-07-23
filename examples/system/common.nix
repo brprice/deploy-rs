@@ -19,6 +19,7 @@
   services.openssh = { enable = true; };
 
   # Another option would be root on the server
+  nix.trustedUsers = ["root" "admin"];
   security.sudo.extraRules = [{
     groups = [ "wheel" ];
     commands = [{
