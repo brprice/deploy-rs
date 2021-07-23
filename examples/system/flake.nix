@@ -36,7 +36,7 @@
           user = "root";
         };
         hello = {
-          sshUser = "admin";
+          sshUser = "hello";
           path = deploy-rs.lib.x86_64-linux.activate.custom self.defaultPackage.x86_64-linux "./bin/activate";
           user = "hello";
         };

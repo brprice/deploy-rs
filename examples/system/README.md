@@ -13,8 +13,8 @@ This is an example of how to deploy a full nixos system with a separate user uni
   - `nix build .#nixosConfigurations.bare.config.system.build.vmWithBootloader`
   - `QEMU_NET_OPTS=hostfwd=tcp::2221-:22 ./result/bin/run-bare-system-vm`
 2. `SSH_ASKPASS_REQUIRE=prefer nix run . -- .#example.system`
-
-# Past here is not yet tested
 3. `nix run . -- .#example.hello`
-4. ???
-5. PROFIT!!!
+# Past here is not tested
+4. somehow test it worked?
+5. ???
+6. PROFIT!!!

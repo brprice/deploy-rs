@@ -13,6 +13,8 @@
     fsType = "vfat";
   };
 
+  nix.trustedUsers = ["hello"];
+
   users.users.hello = {
     isNormalUser = true;
     password = "";
