@@ -9,7 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 This is an example of how to deploy a full nixos system with a separate user unit to a bare machine.
 
 1. Run bare system from `.#nixosConfigurations.bare`
-  - `nix build .#nixosConfigurations.bare.config.system.build.vm`
+  - `nix build .#nixosConfigurations.bare.config.system.build.vmWithBootloader`
   - `QEMU_NET_OPTS=hostfwd=tcp::2221-:22 ./result/bin/run-bare-system-vm`
 2. `nix run . -- .#example.system`
 2. `nix run . -- .#example.hello`
